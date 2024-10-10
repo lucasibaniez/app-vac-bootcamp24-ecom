@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block contenido %}
+    <h1>Bienvenido, {{usuario_autenticado}}</h1>
+
+    <h1>LISTA DE USUARIOS</h1>
+
+    <p><a href="{% url 'inicio' %}">Inicio</a></p>
+    <p><a href="{% url 'lista_de_usuarios' %}">Lista de usuarios</a></p>
+    <p><a href="{% url 'lista_de_pacientes' %}">Lista de pacientes</a></p>
+
+    <table>
+        <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        </tr>
+
+        
+        {% for us in todo_los_pacientes %}
+            <tr>
+                <td>{{us.nombre}}</td>
+                <td>{{us.apellido}}</td>
+        
+            </tr>
+            
+        {% endfor %}
+    </table>
+
+{% endblock contenido %}
