@@ -139,11 +139,29 @@
 
 	<main class="form-signin w-100 m-auto">
 		<form method="POST">{% csrf_token %}
-			<img class="mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+			{% if se_autentico %}
+				
+				{% if salio_mal %}
+					
+				
+					
+					<div class="alert alert-danger" role="alert">
+						Credenciales invalidas
+					</div>
+				{% else %}
+
+					<div class="alert alert-success" role="alert">
+						Bienvenido!
+				  	</div>
+
+				{% endif %}
+			{% endif %}
+				
+			
 			<h1 class="h3 mb-3 fw-normal">Iniciar sesion</h1>
 
 			<div class="form-floating">
-				<input type="text" class="form-control" id="username" placeholder="Ingrese nombre de usuario" name="username">
+				<input type="text" class="form-control" id="username" placeholder="Ingrese nombre de usuario" name="username" value="{{username}}">
 				<label for="floatingInput">Nombre de usuario</label>
 			</div>
 			<div class="form-floating">
