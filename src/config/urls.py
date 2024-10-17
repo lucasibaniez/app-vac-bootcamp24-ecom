@@ -13,7 +13,7 @@ urlpatterns = [
     # path('login/', views.login, name="login"),
     # path('login/', views_django.LoginView.as_view(), name="login"),
     path('login/', views_django.LoginView.as_view(template_name="login.html"), name="login"),
-    
+    path('logout/', views_django.logout_then_login, name="logout"),
     
     path('usuarios/lista/', views.lista_usuarios, name="lista_de_usuarios"),
     path('pacientes/lista/', views.lista_pacientes, name="lista_de_pacientes")

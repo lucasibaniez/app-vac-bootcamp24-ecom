@@ -10,6 +10,15 @@
     <p><a href="{% url 'lista_de_usuarios' %}">Lista de usuarios</a></p>
     <p><a href="{% url 'lista_de_pacientes' %}">Lista de pacientes</a></p>
 
+    {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+            <p><button class="btn btn-link" type="submit">Cerrar sesion</button></p>
+        </form>
+        
+    {% else %}
+        <p><a href="{% url 'login' %}">Iniciar sesion</a></p>
+    {% endif %}
+
     
     {% block contenido %}
         
