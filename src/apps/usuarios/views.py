@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect
 
-from .forms import FormUsuario
+from .forms import FormUsuario, FormUser
 from .models import Usuario
 
 def nuevo(request):
     template_name = 'usuarios/nuevo.html'
-    form = FormUsuario()
+    # form = FormUsuario()
+    form = FormUser()
+
     if request.method == 'POST':
-        form = FormUsuario(request.POST)
+        form = FormUser(request.POST)
         if form.is_valid():
             form.save()
             return redirect("usuarios:lista")
