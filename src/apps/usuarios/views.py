@@ -1,6 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
+from .forms import FormUsuario
 from .models import Usuario
+
+def nuevo(request):
+    template_name = 'usuarios/nuevo.html'
+    form = FormUsuario()
+    if request.method == 'POST':
+        form = FormUsuario(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("usuarios:lista")
+        else:
+            print("todo salio mal")
+    ctx = {
+        "form": form
+    }
+    return render(request, template_name, ctx) 
 
 def lista_usuarios(request):
     usuarios = Usuario.objects.all() # filter(id__in=[1,2,3])#

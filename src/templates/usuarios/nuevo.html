@@ -1,0 +1,8 @@
+<h1>Nuevo usuario</h1>
+
+<form method="POST">{% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit">Guardar</button>
+    <a href="{% url 'usuarios:lista' %}">volver</a>
+</form>
