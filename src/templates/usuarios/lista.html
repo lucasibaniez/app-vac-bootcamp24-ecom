@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+
+
+{% block contenido %}
+    <h1>Bienvenido, {{usuario_autenticado}}</h1>
+
+    <h1>LISTA DE USUARIOS</h1>
+
+    <table>
+        <tr>
+            <th>Nombre de usuario</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+        </tr>
+
+        
+        {% for us in usuarios %}
+            <tr>
+                <td>{{us.username}}</td>
+                <td>
+                    
+                    {% if us.first_name %}
+                        {{us.first_name}}
+                    {% else %}
+                        -
+                    {% endif %}
+                        
+                    
+                </td>
+                <td>{{us.last_name|default:"-"}}</td>
+        
+            </tr>
+            
+        {% endfor %}
+    </table>
+
+{% endblock contenido %}
