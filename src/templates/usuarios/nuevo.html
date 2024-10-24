@@ -1,7 +1,46 @@
 <h1>Nuevo usuario</h1>
 
 <form method="POST">{% csrf_token %}
-    {{form.as_p}}
+    {{message}}
+    <hr>
+    {{form.errors}}
+    <hr>
+    <p>
+        {{form.username.label}}
+        {{form.username}}
+    </p>
+
+    <p>
+        {{form.first_name.label}}
+        {{form.first_name}}
+    </p>
+
+    <p>
+        {{form.last_name.label}}
+        {{form.last_name}}
+    </p>
+
+    <p>
+        {{form.dni.label}}
+        {{form.dni}}
+    </p>
+
+    <p>
+        {{form.email.label}}
+        {{form.email}}
+    </p>
+
+    <p>
+        {{form.password1.help_text}}
+        {{form.password1.label}}
+        {{form.password1}}
+    </p>
+
+    <p>
+        {{form.password2.label}}
+        {{form.password2}}
+    </p>
+    <hr>
 
     <button type="submit">Guardar</button>
     <a href="{% url 'usuarios:lista' %}">volver</a>
