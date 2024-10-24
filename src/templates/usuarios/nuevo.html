@@ -1,47 +1,27 @@
-<h1>Nuevo usuario</h1>
+{% extends 'base/base.html' %}
 
-<form method="POST">{% csrf_token %}
-    {{message}}
-    <hr>
-    {{form.errors}}
-    <hr>
-    <p>
-        {{form.username.label}}
-        {{form.username}}
-    </p>
 
-    <p>
-        {{form.first_name.label}}
-        {{form.first_name}}
-    </p>
 
-    <p>
-        {{form.last_name.label}}
-        {{form.last_name}}
-    </p>
+{% block contenido %}
+    <h1>Nuevo usuario</h1>
 
-    <p>
-        {{form.dni.label}}
-        {{form.dni}}
-    </p>
+    <form method="POST">{% csrf_token %}
+        {{message}}
+        <hr>
+        {{form.errors}}
+        <hr>
+        <!--
+        <p>
+            {{form.atributo1.label}}
+            {{form.atributo1}}
+        </p>
+        -->
+        
+        {% include 'includes/forms.html' with form=formUsuario %}
 
-    <p>
-        {{form.email.label}}
-        {{form.email}}
-    </p>
+        <hr>
 
-    <p>
-        {{form.password1.help_text}}
-        {{form.password1.label}}
-        {{form.password1}}
-    </p>
-
-    <p>
-        {{form.password2.label}}
-        {{form.password2}}
-    </p>
-    <hr>
-
-    <button type="submit">Guardar</button>
-    <a href="{% url 'usuarios:lista' %}">volver</a>
-</form>
+        <button type="submit">Guardar</button>
+        <a href="{% url 'usuarios:lista' %}">volver</a>
+    </form>
+{% endblock contenido %}

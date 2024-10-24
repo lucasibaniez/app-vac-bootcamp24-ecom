@@ -11,9 +11,20 @@ class FormUsuario(forms.ModelForm):
         fields = ["password", "username", "first_name", "last_name", "email", "is_active", "dni"]
 
 class FormUser(UserCreationForm):
+    # atributo1 = forms.CharField()
+    username = forms.CharField(label="Nombre de usuario", widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Ingrese un nombre de usuario'}))
     class Meta:
         model = Usuario
         fields = ["username", "first_name", "last_name", "email", "is_active", "dni"]
+    
+    def __init__(self, *args, **kwargs):
+        super(FormUser, self).__init__(*args, **kwargs)
+
+        add_class_form_control = ["first_name", "username", "last_name", "email", "dni", "password1", "password2"]
+        
+        for attr_field in add_class_form_control:
+            self.fields[attr_field].widget.attrs["class"] = "form-control"
+
 
     def clean_dni(self):
         dni = self.cleaned_data["dni"]
