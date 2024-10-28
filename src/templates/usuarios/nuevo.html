@@ -14,6 +14,22 @@
         </p>
         -->
         {% include 'includes/forms_errors.html' with form=formUsuario %}
+        
+        {% comment %}
+        <!--
+        <div class="row">
+            <div class="col">
+                {{formUsuario.first_name.label}}
+                {{formUsuario.first_name}}
+            </div>
+            <div class="col">
+                {{formUsuario.last_name.label}}
+                {{formUsuario.last_name}}
+            </div>
+        </div>
+        -->
+        {% endcomment %}
+
         {% include 'includes/forms.html' with form=formUsuario %}
 
         <hr>

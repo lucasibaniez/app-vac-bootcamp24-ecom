@@ -24,7 +24,7 @@ class FormUser(UserCreationForm):
         
         for attr_field in add_class_form_control:
             self.fields[attr_field].widget.attrs["class"] = "form-control"
-
+        
 
     def clean_dni(self):
         dni = self.cleaned_data["dni"]
