@@ -17,6 +17,5 @@ urlpatterns = [
     
     # path('usuarios/lista/', views.lista_usuarios, name="lista_de_usuarios"),
     path('usuarios/', include("apps.usuarios.urls")),
-    
-    path('pacientes/lista/', views.lista_pacientes, name="lista_de_pacientes")
+    path('pacientes/', include("apps.pacientes.urls")),
 ]

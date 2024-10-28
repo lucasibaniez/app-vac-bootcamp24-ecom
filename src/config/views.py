@@ -14,9 +14,6 @@ def mi_pagina_inicio(request):
     }
     return render(request, 'mi_pagina_inicio.html', contexto)
 
-def lista_pacientes(request):
-    return render(request, 'lista_pacientes.html', {})
-
 def login(request):
 
     
