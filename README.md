@@ -1,7 +1,7 @@
 # app vac
 
 Funcionalidades
-* ABM Vacunas
+* ABM Vacunas/Dosis
 * ABM Usuarios / Roles
 * ABM Pacientes 
 * ABM Medicos 
