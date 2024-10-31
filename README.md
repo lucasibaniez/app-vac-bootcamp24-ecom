@@ -9,3 +9,7 @@ Funcionalidades
 * Login / logout
 * Dashboards
 * Trunos (?)
+
+
+### Python
+Versión 3.12.6
