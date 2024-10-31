@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.usuarios',
-    'apps.pacientes'
+    'apps.pacientes',
+    'apps.vacunas'
 ]
 
 AUTH_USER_MODEL = 'usuarios.Usuario'

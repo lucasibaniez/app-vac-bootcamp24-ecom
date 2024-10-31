@@ -18,4 +18,5 @@ urlpatterns = [
     # path('usuarios/lista/', views.lista_usuarios, name="lista_de_usuarios"),
     path('usuarios/', include("apps.usuarios.urls")),
     path('pacientes/', include("apps.pacientes.urls")),
+    path('vacunas/', include("apps.vacunas.urls")),
 ]
