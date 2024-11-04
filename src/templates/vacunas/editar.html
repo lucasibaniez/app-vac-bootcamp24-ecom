@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+    <h1>{{ titulo }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar cambios</button>
+    </form>
+    <a href="{% url 'vacunas:lista' %}">Volver a la lista</a>
+{% endblock contenido %}

@@ -1,0 +1,19 @@
+{% extends 'base/base.html' %}
+
+
+
+{% block contenido %}
+ <h2>¿Estás seguro de que deseas eliminar la vacuna "{{ object }}"?</h2>
+  <p>Esta acción también eliminará las dosis asociadas:</p>
+  <ul>
+    {% for dosis in dosis %}
+      <li>{{ dosis.nombre }} (Orden: {{ dosis.orden }})</li>
+    {% endfor %}
+  </ul>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirmar eliminación</button>
+    <a href="{% url 'vacunas:lista' %}">Cancelar</a>
+  </form>
+{% endblock contenido %}

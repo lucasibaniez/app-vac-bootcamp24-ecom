@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+    <h1>{{ vacuna.nombre }}</h1>
+    <p>Código: {{ vacuna.codigo }}</p>
+    <p>Dosis requeridas: {{ vacuna.ca_dosis }}</p>
+
+    <h2>Dosis asociadas</h2>
+    <ul>
+        {% for dosis in dosis %}
+            <li>{{ dosis.nombre }} (Orden: {{ dosis.orden }})</li>
+        {% empty %}
+            <li>No hay dosis asociadas para esta vacuna.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'vacunas:lista' %}">Volver a la lista de vacunas</a>
+
+{% endblock contenido %}

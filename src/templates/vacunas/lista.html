@@ -1,0 +1,69 @@
+{% extends "base/base.html" %}
+
+{% block block_title %}Vacunas{% endblock block_title %}
+
+
+{% block contenido %}
+	<div class="row">
+		<div class="col-xl-12">
+			<div class="card">
+		        <div class="card-header">
+		            <h5><i class="fas fa-vial"></i> {{titulo}}</h5>
+		        </div>
+		        <div class="card-block table-border-style">
+		        	<div class="row">
+						<div class="col-xl-12">
+				        	<div class="btn-group right">
+				        		<!--
+								<a href=""><button type="button" class="btn btn-primary" title="" data-toggle="tooltip" data-original-title="Nueva Metadata"><i class="fas fa-plus"></i> Nuevo Centro de Vacunación</button></a>
+								-->
+							</div>
+						</div>
+					</div>
+					<br>
+		        	<div class="row">
+						<div class="col-xl-12">
+				      		<form method="GET">
+				          		<div class="input-group">
+				            		<input id="search" type="text" class="form-control" name="search" value="{{search}}" placeholder="Búsqueda por nombre de Usuarios" value="{{search}}">
+				            		<span class="input-group-btn">
+                                        <button type="submit" class="btn btn-primary m-0"><i class="fas fa-search prefix"></i> Buscar</button>
+                                    </span>
+				          		</div>
+				      		</form>
+					  	</div>
+					</div>
+					<br>
+					<div class="table-responsive">
+			            <table class="table table-columned">
+							<thead>
+								<tr>
+									<th>Código</th>
+									<th>Nombre</th>
+									<th>Cantidad de dosis</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for vacuna in vacunas %}
+									<tr id="rowTurno_{{turno.id}}">
+										<th>{{vacuna.codigo}}</th>
+										<td>{{vacuna.nombre|default:'-'}}</td>
+										<td>{{vacuna.ca_dosis}}</td>
+									</tr>
+								{% empty %}
+									<tr>
+										<td>No se encontraron resultados</td>
+									</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+
+						{% include "includes/paginacion.html" %}
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock contenido %}
