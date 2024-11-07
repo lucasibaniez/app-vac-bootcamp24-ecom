@@ -7,7 +7,7 @@ from .models import Vacuna, Dosis
 
 
 class Listar(ListView):
-    template_name = 'vacunas/lista_new.html'
+    template_name = 'vacunas/lista.html'
     model = Vacuna
     context_object_name = "vacunas"
     paginate_by = 20

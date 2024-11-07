@@ -14,7 +14,7 @@ def mi_pagina_inicio(request):
         "usuario_autenticado": "Lucas Ibañez",
         "TITULO": "INICIO"
     }
-    return render(request, 'mi_pagina_inicio_new.html', contexto)
+    return render(request, 'mi_pagina_inicio.html', contexto)
 
 def login(request):
 
