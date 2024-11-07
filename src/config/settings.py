@@ -173,6 +173,11 @@ RUTA_CARPETA_MEDIA = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "media/"
 MEDIA_ROOT = RUTA_CARPETA_MEDIA
 
+print("**************")
+print(MEDIA_URL)
+print(MEDIA_ROOT)
+print("**************")
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
