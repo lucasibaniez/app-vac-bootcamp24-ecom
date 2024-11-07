@@ -16,5 +16,8 @@ Funcionalidades
 2) Instalar dependencias del requirements/base.txt
 3) crear un archivo ".env" con los datos y estructuras de "env_example"
 
+### Template base
+Se utiliza https://adminlte.io/
+
 ### Python
 Versión 3.12.6
