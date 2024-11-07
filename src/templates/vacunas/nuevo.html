@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block contenido %}
+    <h1>Nueva vacuna</h1>
+
+    <form method="POST">{% csrf_token %}
+     
+
+        {% include 'includes/forms_errors.html' %}
+        
+        {% include 'includes/forms.html' %}
+
+        <hr>
+
+        <button type="submit">Guardar</button>
+        <a href="{% url 'vacunas:lista' %}">volver</a>
+    </form>
+{% endblock contenido %}
