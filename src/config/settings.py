@@ -49,7 +49,8 @@ LOCAL_APPS = [
     'apps.usuarios',
     'apps.pacientes',
     'apps.vacunas',
-    'apps.carnet_vacunacion'
+    'apps.carnet_vacunacion',
+    'apps.vacunas_aplicadas'
 
 ]
 
