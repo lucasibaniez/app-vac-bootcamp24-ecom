@@ -115,19 +115,6 @@ DATABASES = {
 }
 
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'app_vacunacion',
-#         'USER': 'postgres',
-#         'PASSWORD': '123',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#     }
-# }
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -173,10 +160,10 @@ RUTA_CARPETA_MEDIA = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "media/"
 MEDIA_ROOT = RUTA_CARPETA_MEDIA
 
-print("**************")
-print(MEDIA_URL)
-print(MEDIA_ROOT)
-print("**************")
+# print("**************")
+# print(MEDIA_URL)
+# print(MEDIA_ROOT)
+# print("**************")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
