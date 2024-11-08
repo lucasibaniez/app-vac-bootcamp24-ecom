@@ -1,7 +1,7 @@
 {% extends "base/base_nuevo.html" %}
 
 {% block title_block %}
-        Vacunas
+        Usuarios
 {% endblock title_block %}
 
 {% block css_extras %}
@@ -34,35 +34,35 @@
                         <div class="col-md-12">
                             <div class="card mb-6">
                                 <div class="card-header">
-                                    <h3 class="card-title">Vacunas Registrados</h3>
+                                    <h3 class="card-title">Usuarios Registrados</h3>
                                     <div class="card-tools">
-                                        <a href="" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
+                                        <a href="{% url 'usuarios:nuevo' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
                                     </div>
                                 </div> <!-- /.card-header -->
                                 <div class="card-body">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th style="width: 20px">Código</th>
+                                                <th>Nombre de usuario</th>
                                                 <th>Nombre</th>
-                                                <th style="width: 10px">Cantidad de dosis</th>
+                                                <th>Apellido</th>
                                                 <th style="width: 150px">Opciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {% for vacuna in vacunas %}
+                                            {% for us in usuarios %}
                                                 <tr class="align-middle" id="rowTurno_{{turno.id}}">
-                                                    <td  class="text-center">{{vacuna.codigo}}</td>
-                                                    <td>{{vacuna.nombre|default:'-'}}</td>
-                                                    <td  class="text-center">{{vacuna.ca_dosis}}</td>
+                                                    <td>{{us.username}}</td>
+                                                    <td>{{us.first_name|default:'-'}}</td>
+                                                    <td>{{us.last_name|default:"-"}}</td>
                                                     <td  class="text-center">
-                                                        <a href="{% url 'vacunas:detalle' vacuna.id %}" class="btn btn-sm btn-info" title="Detalle">
+                                                        <a href="" class="btn btn-sm btn-info" title="Detalle">
                                                             <i class="fas fa-eye"></i>
                                                         </a>
-                                                        <a href="{% url 'vacunas:editar' vacuna.id %}" class="btn btn-sm btn-warning" title="Editar">
+                                                        <a href="" class="btn btn-sm btn-warning" title="Editar">
                                                             <i class="fas fa-edit"></i>
                                                         </a>
-                                                        <a href="{% url 'vacunas:eliminar' vacuna.id %}" class="btn btn-sm btn-danger" title="Eliminar">
+                                                        <a href="" class="btn btn-sm btn-danger" title="Eliminar">
                                                             <i class="fas fa-trash-alt"></i>
                                                         </a>
                                                     </td>

@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import FormUsuario, FormUser
 from .models import Usuario
 
+
 def nuevo(request):
     template_name = 'usuarios/nuevo.html'
     # form = FormUsuario()
@@ -20,10 +21,11 @@ def nuevo(request):
         "formUsuario": form,
         "message": message
     }
-    return render(request, template_name, ctx) 
+    return render(request, template_name, ctx)
+
 
 def lista_usuarios(request):
-    usuarios = Usuario.objects.all() # filter(id__in=[1,2,3])#
+    usuarios = Usuario.objects.all()  # filter(id__in=[1,2,3])#
     """
     u = Usuario.objects.filter(id=1).first()
     # u = Usuario.objects.get(id=5)
@@ -43,6 +45,7 @@ def lista_usuarios(request):
         print(us.last_login)
     """
     ctx = {
-        "usuarios": usuarios
+        "usuarios": usuarios,
+        "titulo": "LISTA DE USUARIOS"
     }
-    return render(request, 'usuarios/lista.html', ctx)
+    return render(request, 'usuarios/lista_new.html', ctx)
