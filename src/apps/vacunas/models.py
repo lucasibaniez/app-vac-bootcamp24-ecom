@@ -13,7 +13,7 @@ from django.db import models
 # - orden
 
 class Vacuna(models.Model):
-    codigo = models.IntegerField()
+    codigo = models.IntegerField(unique=True)
     nombre = models.CharField(max_length=500)
     ca_dosis = models.IntegerField(default=1)
 

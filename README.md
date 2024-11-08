@@ -4,8 +4,8 @@
 * ABM Vacunas/Dosis
 * ABM Usuarios / Roles
 * ABM Pacientes 
-* ABM Medicos 
-* Asignar vacunas a pacientes
+* ABM Medicos
+* Vacunas aplicadas_ Asignar vacunas a pacientes
 * Login / logout
 * Dashboards
 * Trunos (?)
@@ -17,7 +17,8 @@
 3) crear un archivo ".env" con los datos y estructuras de "env_example"
 
 ### Template base
-Se utiliza como base https://adminlte.io
+Se utiliza https://adminlte.io/
+
 
 ### Python
 Versión 3.12.6

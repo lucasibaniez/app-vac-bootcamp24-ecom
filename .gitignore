@@ -19,7 +19,7 @@ db.sqlite3
 
 
 # Medias
-# src/media/
+src/media/avatars/
 
 # Environment files
 pydock/.envz

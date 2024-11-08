@@ -34,6 +34,7 @@
 					  	</div>
 					</div>
 					<br>
+					<a href="{% url 'vacunas:nuevo' %}">Nueva vacuna</a>
 					<div class="table-responsive">
 			            <table class="table table-columned">
 							<thead>
@@ -41,7 +42,7 @@
 									<th>Código</th>
 									<th>Nombre</th>
 									<th>Cantidad de dosis</th>
-									<th></th>
+									<th>opciones</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -50,6 +51,9 @@
 										<th>{{vacuna.codigo}}</th>
 										<td>{{vacuna.nombre|default:'-'}}</td>
 										<td>{{vacuna.ca_dosis}}</td>
+										<td>
+											<a href="{% url 'vacunas:editar' vacuna.id %}">editar</a>
+										</td>
 									</tr>
 								{% empty %}
 									<tr>

@@ -9,8 +9,9 @@ urlpatterns = [
     # lista vacunas
     path('lista/', views.Listar.as_view(), name="lista"), # tarea: hacer busqueda
     # crear vacuna  -> tarea
+    path('nuevo/', views.Nuevo.as_view(), name="nuevo"), # tarea: hacer busqueda
     # editar vacuna
-    path('vacuna/<int:pk>/editar', views.VacunaUpdate.as_view(), name='editar'),
+    path('vacuna/editar/<int:id_vacuna>/', views.VacunaUpdate.as_view(), name='editar'),
     # detalle vacuna
     path('vacuna/<int:pk>/', views.VacunaDetail.as_view(), name='detalle'),
     # eliminar vacuna

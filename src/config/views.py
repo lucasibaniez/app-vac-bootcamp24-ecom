@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import authenticate, login as login_django
+from django.views.generic import TemplateView
 
 def mi_pagina_inicio(request):
     lista_usuarios = [
@@ -10,7 +11,8 @@ def mi_pagina_inicio(request):
     ]
     contexto = {
         "todo_los_usuarios": lista_usuarios,
-        "usuario_autenticado": "Lucas Ibañez"
+        "usuario_autenticado": "Lucas Ibañez",
+        "TITULO": "INICIO"
     }
     return render(request, 'mi_pagina_inicio.html', contexto)
 
@@ -48,3 +50,7 @@ def login(request):
         "username": username
     }
     return render(request, 'login.html', ctx)
+
+
+class BaseTemplateView(TemplateView):
+    template_name = "blank.html"

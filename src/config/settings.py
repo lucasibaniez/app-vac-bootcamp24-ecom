@@ -36,17 +36,26 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=['*'])
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+LOCAL_APPS = [
     'apps.usuarios',
     'apps.pacientes',
-    'apps.vacunas'
+    'apps.vacunas',
+    'apps.carnet_vacunacion',
+    'apps.vacunas_aplicadas'
+
 ]
+
+THIRD_APPS = []
+INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_APPS
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
 
@@ -153,7 +162,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Contenido Media
+RUTA_CARPETA_MEDIA = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "media/"
+MEDIA_ROOT = RUTA_CARPETA_MEDIA
+
+print("**************")
+print(MEDIA_URL)
+print(MEDIA_ROOT)
+print("**************")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
