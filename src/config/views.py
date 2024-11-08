@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as login_django
 from django.views.generic import TemplateView
 
+
 def mi_pagina_inicio(request):
     lista_usuarios = [
         {"nombre": "Lucas", "apellido": "Ibañez"},
@@ -14,11 +15,10 @@ def mi_pagina_inicio(request):
         "usuario_autenticado": "Lucas Ibañez",
         "TITULO": "INICIO"
     }
-    return render(request, 'mi_pagina_inicio.html', contexto)
+    return render(request, 'mi_pagina_inicio_new.html', contexto)
+
 
 def login(request):
-
-    
     # print("=========================")
     # print("method", request.method)
     # print(request)

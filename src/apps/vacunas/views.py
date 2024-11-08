@@ -8,15 +8,16 @@ from .models import Vacuna, Dosis
 
 
 class Listar(ListView):
-    template_name = 'vacunas/lista.html'
+    template_name = 'vacunas/lista_new.html'
     model = Vacuna
     context_object_name = "vacunas"
-    paginate_by = 20
+    paginate_by = 5
 
     def get_context_data(self, **kwargs):
         ctx = super(Listar, self).get_context_data(**kwargs)
         ctx["titulo"] = "LISTA DE VACUNAS"
         return ctx
+
 
 class VacunaUpdate(UpdateView):
     model = Vacuna
@@ -32,6 +33,7 @@ class VacunaUpdate(UpdateView):
         print(self.kwargs["id_vacuna"])
         return context
 
+
 class VacunaDetail(DetailView):
     model = Vacuna
     template_name = 'vacunas/detalle.html'
@@ -42,6 +44,7 @@ class VacunaDetail(DetailView):
         context['dosis'] = Dosis.objects.filter(vacuna=self.object)
         return context
 
+
 class VacunaDeleteView(DeleteView):
     model = Vacuna
     template_name = 'vacunas/confirmar_eliminacion.html'
@@ -51,7 +54,7 @@ class VacunaDeleteView(DeleteView):
         context = super().get_context_data(**kwargs)
         context['dosis'] = Dosis.objects.filter(vacuna=self.object)
         return context
-    
+
 
 class Nuevo(CreateView):
     template_name = 'vacunas/nuevo.html'

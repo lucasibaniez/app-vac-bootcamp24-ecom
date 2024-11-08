@@ -46,32 +46,35 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-										{% for vacuna in vacunas %}
-                                            <tr class="align-middle" id="rowTurno_{{turno.id}}">
-                                                <td>{{vacuna.codigo}}</td>
-                                                <td>{{vacuna.nombre|default:'-'}}</td>
-                                                <td>{{vacuna.ca_dosis}} </td>
-                                                <td>
-													<a href="{% url 'vacunas:detalle' vacuna.id %}" class="btn btn-sm btn-info" title="Detalle">
-														<i class="fas fa-eye"></i>
-													</a>
-													<a href="{% url 'vacunas:editar' vacuna.id %}" class="btn btn-sm btn-warning" title="Editar">
-														<i class="fas fa-edit"></i>
-													</a>
-													<a href="{% url 'vacunas:eliminar' vacuna.id %}" class="btn btn-sm btn-danger" title="Eliminar">
-														<i class="fas fa-trash-alt"></i>
-													</a>
-												</td>
-                                            </tr>
-										{% empty %}
-											<tr>
-												<td>No se encontraron resultados</td>
-											</tr>
-										{% endfor %}
+                                            {% for vacuna in vacunas %}
+                                                <tr class="align-middle" id="rowTurno_{{turno.id}}">
+                                                    <td  class="text-center">{{vacuna.codigo}}</td>
+                                                    <td>{{vacuna.nombre|default:'-'}}</td>
+                                                    <td  class="text-center">{{vacuna.ca_dosis}}</td>
+                                                    <td  class="text-center">
+                                                        <a href="{% url 'vacunas:detalle' vacuna.id %}" class="btn btn-sm btn-info" title="Detalle">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                        <a href="{% url 'vacunas:editar' vacuna.id %}" class="btn btn-sm btn-warning" title="Editar">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        <a href="{% url 'vacunas:eliminar' vacuna.id %}" class="btn btn-sm btn-danger" title="Eliminar">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% empty %}
+                                                <tr>
+                                                    <td colspan="4" class="text-center">No se encontraron resultados</td>
+                                                </tr>
+                                            {% endfor %}
                                         </tbody>
                                     </table>
+
                                 </div> <!-- /.card-body -->
+                                <div class="card-body d-flex justify-content-center">
                                 {% include "includes/paginacion.html" %}
+                                </div>
                             </div> <!-- /.card -->
 
                         </div> <!-- /.col -->
