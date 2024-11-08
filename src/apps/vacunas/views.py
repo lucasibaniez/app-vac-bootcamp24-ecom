@@ -22,7 +22,7 @@ class Listar(ListView):
 class VacunaUpdate(UpdateView):
     model = Vacuna
     fields = ['codigo', 'nombre', 'ca_dosis']
-    template_name = 'vacunas/editar.html'
+    template_name = 'vacunas/editar_new.html'
     success_url = reverse_lazy('vacunas:lista')  # Redirigir a la lista de vacunas después de la edición
     pk_url_kwarg = "id_vacuna"
 
@@ -36,7 +36,7 @@ class VacunaUpdate(UpdateView):
 
 class VacunaDetail(DetailView):
     model = Vacuna
-    template_name = 'vacunas/detalle.html'
+    template_name = 'vacunas/detalle_new.html'
     context_object_name = 'vacuna'
 
     def get_context_data(self, **kwargs):

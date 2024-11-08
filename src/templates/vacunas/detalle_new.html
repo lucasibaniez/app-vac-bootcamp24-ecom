@@ -1,0 +1,111 @@
+{% extends 'base/base_nuevo.html' %}
+
+{% block title_block %}
+        Detalle Vacuna
+{% endblock title_block %}
+
+{% block css_extras %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css_extras %}
+
+{% block content %}
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">{{vacuna.nombre}}</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Home</a></li>
+							<li class="breadcrumb-item"><a href="{% url 'vacunas:lista' %}">LISTADO DE VACUNAS</a></li>
+                            <li class="breadcrumb-item">{{vacuna.nombre}}</li>
+                        </ol>
+                    </div>
+                </div> <!--end::Row-->
+            </div> <!--end::Container-->
+        </div> <!--end::App Content Header--> <!--begin::App Content-->
+        <div class="app-content d-flex justify-content-center"> <!--begin::Container-->
+
+                <div class="col-md-6"> <!--begin::Quick Example-->
+                    <div class="card card-primary card-outline mb-4"> <!--begin::Header-->
+                        <div class="card-header">
+                            <div class="card-title">Detalle de la Vacuna</div>
+                        </div> <!--end::Header--> <!--begin::Form-->
+                        <form> <!--begin::Body-->
+                            <div class="card-body">
+                                <div class="mb-3"> <label class="form-label">Código</label> <input type="email" class="form-control" value="{{ vacuna.codigo }}" disabled>
+                                </div>
+                                <div class="mb-3"> <label class="form-label">Cantidad de Dosis</label> <input type="email" class="form-control" value="{{ vacuna.ca_dosis }}" disabled>
+                                </div>
+                            </div> <!--end::Body--> <!--begin::Footer-->
+
+                            <div class="container-fluid"> <!--begin::Row-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="card mb-6">
+                                            <div class="card-header">
+                                                <h3 class="card-title">Dosis</h3>
+                                                <div class="card-tools">
+                                                    <a href="" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
+                                                </div>
+                                            </div> <!-- /.card-header -->
+                                            <div class="card-body">
+                                                <table class="table table-bordered">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="width: 20px">Orden</th>
+                                                            <th>Nombre</th>
+                                                            <th style="width: 150px">Opciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for dosis in dosis %}
+                                                            <tr class="align-middle" id="rowTurno_{{dosis.id}}">
+                                                                <td  class="text-center">{{ dosis.orden }}</td>
+                                                                <td>{{ dosis.nombre }} </td>
+                                                                <td  class="text-center">
+                                                                    <a href="" class="btn btn-sm btn-warning" title="Editar">
+                                                                        <i class="fas fa-edit"></i>
+                                                                    </a>
+                                                                    <a href="" class="btn btn-sm btn-danger" title="Eliminar">
+                                                                        <i class="fas fa-trash-alt"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        {% empty %}
+                                                            <tr>
+                                                                <td colspan="4" class="text-center">No se encontraron resultados</td>
+                                                            </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                </table>
+
+                                            </div> <!-- /.card-body -->
+                                            <div class="card-body d-flex justify-content-center">
+                                            {% include "includes/paginacion.html" %}
+                                </div>
+
+                            <div class="card-footer d-flex ">
+                                <a href="{% url 'vacunas:editar' vacuna.pk %}" class="btn btn-primary"><i class="fas fa-edit"></i> Editar</a>
+                                <a href="{% url 'vacunas:lista' %}" class="btn btn-secundary"><i class="fa-solid fa-rotate-left"></i> Volver</a><!--end::Footer-->
+                            </div>
+
+                            </div> <!-- /.card -->
+
+                        </div> <!-- /.col -->
+
+                    </div> <!--end::Row-->
+                </div> <!--end::Container-->
+
+
+                        </form> <!--end::Form-->
+                    </div> <!--end::Quick Example--> <!--begin::Input Group-->
+
+                </div> <!--end::Col--> <!--begin::Col-->
+
+
+        </div> <!--end::App Content-->
+    </main> <!--end::App Main-->
+{% endblock content %}
