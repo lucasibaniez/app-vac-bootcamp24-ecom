@@ -47,7 +47,7 @@ class VacunaDetail(DetailView):
 
 class VacunaDeleteView(DeleteView):
     model = Vacuna
-    template_name = 'vacunas/confirmar_eliminacion.html'
+    template_name = 'vacunas/confirmar_eliminacion_new.html'
     success_url = reverse_lazy('vacunas:lista')
 
     def get_context_data(self, **kwargs):
