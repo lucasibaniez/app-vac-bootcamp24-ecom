@@ -31,5 +31,4 @@ pydock/.envz
 .idea/
 
 # static files
- src/staticfiles/
  staticfiles/
