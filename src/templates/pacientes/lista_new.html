@@ -1,0 +1,89 @@
+{% extends "base/base_nuevo.html" %}
+
+{% block title_block %}
+        Pacientes
+{% endblock title_block %}
+
+{% block css_extras %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css_extras %}
+
+{% block content %}
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">{{titulo}}</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">
+                                {{titulo}}
+                            </li>
+                        </ol>
+                    </div>
+                </div> <!--end::Row-->
+            </div> <!--end::Container-->
+        </div> <!--end::App Content Header--> <!--begin::App Content-->
+        <div class="app-content"> <!--begin::Container-->
+
+			<div class="container-fluid"> <!--begin::Row-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card mb-6">
+                                <div class="card-header">
+                                    <h3 class="card-title">Pacientes Registrados</h3>
+                                    <div class="card-tools">
+                                        <a href="{% url 'pacientes:nuevo' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
+                                    </div>
+                                </div> <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Apellido</th>
+                                                <th style="width: 150px">Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for object in pacientes %}
+                                                <tr class="align-middle" id="rowTurno_{{object.id}}">
+                                                    <td>{{object.nombre|default:'-'}}</td>
+                                                    <td>{{object.apellido}}</td>
+                                                    <td  class="text-center">
+                                                        <a href="" class="btn btn-sm btn-info" title="Detalle">
+                                                            <i class="fas fa-eye"></i>
+                                                        </a>
+                                                        <a href="" class="btn btn-sm btn-warning" title="Editar">
+                                                            <i class="fas fa-edit"></i>
+                                                        </a>
+                                                        <a href="" class="btn btn-sm btn-danger" title="Eliminar">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% empty %}
+                                                <tr>
+                                                    <td colspan="4" class="text-center">No se encontraron resultados</td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+
+                                </div> <!-- /.card-body -->
+                                <div class="card-body d-flex justify-content-center">
+                                {% include "includes/paginacion.html" %}
+                                </div>
+                            </div> <!-- /.card -->
+
+                        </div> <!-- /.col -->
+
+                    </div> <!--end::Row-->
+                </div> <!--end::Container-->
+
+        </div> <!--end::App Content-->
+    </main> <!--end::App Main-->
+{% endblock content %}
