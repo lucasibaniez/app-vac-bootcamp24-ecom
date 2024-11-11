@@ -1,0 +1,74 @@
+{% extends 'base/base_nuevo.html' %}
+
+{% block title_block %}
+        Nuevo Usuario
+{% endblock title_block %}
+
+{% block css_extras %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+{% endblock css_extras %}
+
+{% block content %}
+    <main class="app-main"> <!--begin::App Content Header-->
+        <div class="app-content-header"> <!--begin::Container-->
+            <div class="container-fluid"> <!--begin::Row-->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="mb-0">{{titulo}}</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-end">
+                            <li class="breadcrumb-item"><a href="{% url 'inicio' %}">Home</a></li>
+							<li class="breadcrumb-item"><a href="{% url 'usuarios:lista' %}">LISTADO DE USUARIOS</a></li>
+                            <li class="breadcrumb-item">{{titulo}}</li>
+                        </ol>
+                    </div>
+                </div> <!--end::Row-->
+            </div> <!--end::Container-->
+        </div> <!--end::App Content Header--> <!--begin::App Content-->
+        <div class="app-content d-flex justify-content-center"> <!--begin::Container-->
+
+                <div class="col-md-6"> <!--begin::Quick Example-->
+                    <div class="card card-primary card-outline mb-4"> <!--begin::Header-->
+                        <div class="card-header">
+                            <div class="card-title">Agregar Nuevo Usuario</div>
+                        </div> <!--end::Header--> <!--begin::Form-->
+                        <form method="post"> <!--begin::Body-->
+                            <div class="card-body">
+                            {% csrf_token %}
+
+                              	{% include 'includes/forms_errors.html' with form=formUsuario %}
+
+                                {% comment %}
+                                <!--
+                                <div class="row">
+                                    <div class="col">
+                                        {{formUsuario.first_name.label}}
+                                        {{formUsuario.first_name}}
+                                    </div>
+                                    <div class="col">
+                                        {{formUsuario.last_name.label}}
+                                        {{formUsuario.last_name}}
+                                    </div>
+                                </div>
+                                -->
+                                {% endcomment %}
+
+                                {% include 'includes/forms.html' with form=formUsuario %}
+
+                            </div>
+                          <div class="card-footer d-flex ">
+                              <button type="submit" class="btn btn-primary"><i class="fa-solid fa-save"></i> Guardar</button>
+                              <a href="{% url 'usuarios:lista' %}" class="btn btn-secundary"><i class="fa-solid fa-xmark"></i> Cancelar</a><!--end::Footer-->
+                          </div>
+
+
+                        </form> <!--end::Form-->
+                    </div> <!--end::Quick Example--> <!--begin::Input Group-->
+
+                </div> <!--end::Col--> <!--begin::Col-->
+
+
+        </div> <!--end::App Content-->
+    </main> <!--end::App Main-->
+{% endblock content %}

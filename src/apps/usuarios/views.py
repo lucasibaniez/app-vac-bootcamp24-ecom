@@ -5,7 +5,7 @@ from .models import Usuario
 
 
 def nuevo(request):
-    template_name = 'usuarios/nuevo.html'
+    template_name = 'usuarios/nuevo_new.html'
     # form = FormUsuario()
     form = FormUser()
     message = ""
