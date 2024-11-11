@@ -9,15 +9,27 @@
 
         <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
 
-            <li class="nav-item dropdown user-menu"> <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"> <img src="{% static 'assets/img/user2-160x160.jpg' %}" class="user-image rounded-circle shadow" alt="User Image"> <span class="d-none d-md-inline">
+            <li class="nav-item dropdown user-menu">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                     {% if user.is_authenticated %}
-                        {{user.username}}
+                        {% if user.avatar %}
+                            <img src="{{ user.avatar.url }}" class="user-image rounded-circle shadow" alt="User Image">
+                        {% else %}
+                            <img src="{% static 'assets/img/user.png' %}" class="user-image rounded-circle shadow" alt="User Image">
+                        {% endif %}
+                        <span class="d-none d-md-inline">{{ user.username }}</span>
                     {% else %}
-                        <p><a href="{% url 'login' %}">SIN AUTENTICAR</a></p>
+                     <img src="{% static 'assets/img/user.png' %}" class="user-image rounded-circle shadow" alt="User Image">
+                        <p><a href="{% url 'login' %}">AUTENTICARSE</a></p>
                     {% endif %}
-            </span> </a>
+                </a>
                 <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
-                    <li class="user-header text-bg-primary"> <img src="{% static 'assets/img/user2-160x160.jpg' %}" class="rounded-circle shadow" alt="User Image">
+                    <li class="user-header text-bg-primary">
+                         {% if user.avatar %}
+                            <img src="{{ user.avatar.url }}"  class="rounded-circle shadow" alt="User Image">
+                        {% else %}
+                            <img src="{% static 'assets/img/user.png' %}" class="rounded-circle shadow" alt="User Image">
+                        {% endif %}
                         <p>
                             {% if user.is_authenticated %}
                                 <h3>{{user.get_full_name}}</h3>
