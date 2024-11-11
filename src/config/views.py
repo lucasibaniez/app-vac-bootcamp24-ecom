@@ -49,7 +49,7 @@ def login(request):
         "salio_mal": salio_mal,
         "username": username
     }
-    return render(request, 'login.html', ctx)
+    return render(request, 'login_new.html', ctx)
 
 
 class BaseTemplateView(TemplateView):
