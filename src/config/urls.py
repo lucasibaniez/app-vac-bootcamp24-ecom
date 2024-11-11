@@ -1,3 +1,4 @@
+from tkinter.font import names
 
 from django.contrib import admin
 from django.contrib.auth import views as views_django
@@ -19,6 +20,8 @@ urlpatterns = [
     # path('login/', views_django.LoginView.as_view(), name="login"),
     path('login/', views_django.LoginView.as_view(template_name="login_new.html"), name="login"),
     path('logout/', views_django.logout_then_login, name="logout"),
+
+    path("error-permisos", views.pagina_error_permisos, name="error_permisos"),
     
     # path('usuarios/lista/', views.lista_usuarios, name="lista_de_usuarios"),
     path('usuarios/', include("apps.usuarios.urls")),

@@ -1,9 +1,14 @@
+from tempfile import template
+
 from django.shortcuts import render, redirect
 
 from django.contrib.auth import authenticate, login as login_django
 from django.views.generic import TemplateView
 
+from apps.utils.decorators import verificar_permisos
 
+
+@verificar_permisos()
 def mi_pagina_inicio(request):
     lista_usuarios = [
         {"nombre": "Lucas", "apellido": "Ibañez"},
@@ -54,3 +59,11 @@ def login(request):
 
 class BaseTemplateView(TemplateView):
     template_name = "blank.html"
+
+
+def pagina_error_permisos(request):
+    template_name = 'paginas/error_permisos.html'
+
+    ctx = {
+    }
+    return render(request, template_name, ctx)
