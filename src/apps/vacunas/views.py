@@ -57,11 +57,12 @@ class VacunaDeleteView(DeleteView):
 
 
 class Nuevo(CreateView):
-    template_name = 'vacunas/nuevo.html'
+    template_name = 'vacunas/nuevo_new.html'
     model = Vacuna
     form_class = FormVacuna
     success_url = reverse_lazy("vacunas:lista")
 
     def get_context_data(self, **kwargs):
         ctx = super(Nuevo, self).get_context_data(**kwargs)
+        ctx['titulo'] = 'Nueva Vacuna'
         return ctx
