@@ -35,7 +35,7 @@ class Lista(ListView):
 
 
 class Nuevo(CreateView):
-    template_name = 'pacientes/nuevo.html'
+    template_name = 'pacientes/nuevo_new.html'
     model = Paciente
     form_class = FormPaciente
     success_url = reverse_lazy("pacientes:lista")
