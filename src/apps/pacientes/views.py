@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
 from .models import Paciente
@@ -12,7 +13,7 @@ def lista(request):
 """
 
 
-class Lista(ListView):
+class Lista(LoginRequiredMixin,ListView):
     template_name = 'pacientes/lista_new.html'
     model = Paciente
     context_object_name = "pacientes"
@@ -34,7 +35,7 @@ class Lista(ListView):
         return query.order_by("apellido")
 
 
-class Nuevo(CreateView):
+class Nuevo(LoginRequiredMixin,CreateView):
     template_name = 'pacientes/nuevo_new.html'
     model = Paciente
     form_class = FormPaciente
