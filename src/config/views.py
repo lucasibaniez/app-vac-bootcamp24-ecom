@@ -5,10 +5,12 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login as login_django
 from django.views.generic import TemplateView
 
-from apps.utils.decorators import verificar_permisos
+from django.contrib.auth.decorators import login_required
+
+# from apps.utils.decorators import verificar_permisos
 
 
-@verificar_permisos()
+@login_required
 def mi_pagina_inicio(request):
     lista_usuarios = [
         {"nombre": "Lucas", "apellido": "Ibañez"},
