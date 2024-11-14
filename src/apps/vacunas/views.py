@@ -4,15 +4,18 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
+from apps.utils.mixins import VerificarPermisosMixins
+
 from .forms import FormVacuna
 from .models import Vacuna, Dosis
 
 
-class Listar(LoginRequiredMixin,ListView):
+class Listar(VerificarPermisosMixins,ListView):
     template_name = 'vacunas/lista_new.html'
     model = Vacuna
     context_object_name = "vacunas"
     paginate_by = 5
+    permiso_requerido = "vacunas.view_vacuna"
 
     def get_context_data(self, **kwargs):
         ctx = super(Listar, self).get_context_data(**kwargs)

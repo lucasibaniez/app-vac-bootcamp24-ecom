@@ -4,6 +4,8 @@ from django.views.generic.list import ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 
+from apps.utils.mixins import VerificarPermisosMixins
+
 from .models import Paciente
 from .forms import FormPaciente
 
@@ -13,11 +15,12 @@ def lista(request):
 """
 
 
-class Lista(LoginRequiredMixin,ListView):
+class Lista(VerificarPermisosMixins,ListView):
     template_name = 'pacientes/lista_new.html'
     model = Paciente
     context_object_name = "pacientes"
     paginate_by = 1
+    permiso_requerido = 'pacientes.view_paciente'
 
     def get_context_data(self, **kwargs):
         ctx = super(Lista, self).get_context_data(**kwargs)
@@ -26,12 +29,9 @@ class Lista(LoginRequiredMixin,ListView):
 
     def get_queryset(self):
         query = self.model.objects.all()
-        print(self.request.method)
         nombre = self.request.GET.get('nombre', None)
-        print("nombre", nombre)
         if nombre:
             query = query.filter(nombre=nombre)
-        print("query", query)
         return query.order_by("apellido")
 
 

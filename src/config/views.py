@@ -7,10 +7,11 @@ from django.views.generic import TemplateView
 
 from django.contrib.auth.decorators import login_required
 
-# from apps.utils.decorators import verificar_permisos
+from apps.utils.decorators import verificar_permisos
 
 
-@login_required
+# @login_required
+@verificar_permisos()
 def mi_pagina_inicio(request):
     lista_usuarios = [
         {"nombre": "Lucas", "apellido": "Ibañez"},
