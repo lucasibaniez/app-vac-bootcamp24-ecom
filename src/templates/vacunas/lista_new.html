@@ -34,12 +34,17 @@
                         <div class="col-md-12">
                             <div class="card mb-6">
                                 <div class="card-header">
-                                    <h3 class="card-title">Vacunas Registrados</h3>
+                                    <h3 class="card-title">Vacunas Registradas</h3>
                                     <div class="card-tools">
                                         <a href="{% url 'vacunas:nuevo' %}" class="btn btn-primary"><i class="fas fa-plus"></i> Nuevo</a>
                                     </div>
                                 </div> <!-- /.card-header -->
                                 <div class="card-body">
+                                    <form method="get">
+                                        {{ filter.form.as_p }}
+                                        <input type="submit" />
+                                    </form>
+                                        
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
