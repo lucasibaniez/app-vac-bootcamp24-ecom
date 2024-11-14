@@ -49,7 +49,25 @@
                         </li> <!--end::Menu Body-->
                     {% endif %}
                     <!--begin::Menu Footer-->
-                    <li class="user-footer"> <a href="#" class="btn btn-default btn-flat">Profile</a> <a href="{% url 'logout' %}" class="btn btn-default btn-flat float-end">Log out</a> </li> <!--end::Menu Footer-->
+                    <form action="{% url 'logout' %}" method="POST">{% csrf_token %}
+
+                        <li class="user-footer"> 
+                            <button href="#" class="btn btn-default btn-flat">Salir</button> 
+                        </li>
+
+
+                        <li class="nav-item">
+                            <button class="nav-link d-flex align-items-center gap-2" type="submit">
+                                <svg class="bi">
+                                    <use xlink:href="#door-closed"></use>
+                                </svg>
+                                Salir
+                            </button>
+                        </li>
+                    </form>
+
+
+                     
                 </ul>
             </li> <!--end::User Menu Dropdown-->
         </ul> <!--end::End Navbar Links-->
