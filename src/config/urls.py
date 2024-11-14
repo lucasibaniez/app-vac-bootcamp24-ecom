@@ -9,6 +9,12 @@ from django.conf.urls.static import static
 
 from . import views
 
+apis_urls = [
+    path('vacunaciones/', include("apps.vacunas_aplicadas.routers")),
+
+]
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('inicio/', views.mi_pagina_inicio, name="inicio"),
@@ -23,6 +29,8 @@ urlpatterns = [
 
     path("error-permisos", views.pagina_error_permisos, name="error_permisos"),
     
+    path('api/v1/', include(apis_urls)),
+
     # path('usuarios/lista/', views.lista_usuarios, name="lista_de_usuarios"),
     path('usuarios/', include("apps.usuarios.urls")),
     path('pacientes/', include("apps.pacientes.urls")),
